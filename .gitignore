@@ -1,9 +1,8 @@
 node_modules/
+.next/
 dist/
 .env
 .env.local
 .vercel/
 .playwright-mcp/
 *.log
-
-.vercel
