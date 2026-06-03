@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Appointment } from '@/lib/types'
+import DatePicker from './ui/DatePicker'
 import styles from './BookingForm.module.css'
 
 const MORNING = ['09:00','10:00','11:00','12:00']
@@ -54,10 +55,7 @@ export default function BookingForm({ barberId }: { barberId: string }) {
       <form onSubmit={handleSubmit} noValidate>
         <section className={styles.section}>
           <label className={styles.label}>Data</label>
-          <div className={styles.datePicker}>
-            📅 <span>{fmt(date)}</span>
-            <input type="date" value={date} onChange={e => { setDate(e.target.value); setTime('') }} className={styles.dateInput} />
-          </div>
+          <DatePicker value={date} onChange={v => { setDate(v); setTime('') }} />
         </section>
         <section className={styles.section}>
           <p className={styles.label}>Horários</p>
