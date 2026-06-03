@@ -36,7 +36,11 @@ export default function ServicosPage() {
     if (form.price === '' || Number(form.price) < 0) { setError('Preço inválido.'); return }
     setError('')
     if (editId) {
-      const updated = services.map(s => s.id === editId ? { ...s, name: form.name.trim(), duration: Number(form.duration), price: Number(form.price) } : s)
+      const updated = services.map(s =>
+        s.id === editId
+          ? { ...s, name: form.name.trim(), duration: Number(form.duration), price: Number(form.price) }
+          : s
+      )
       await saveServices(updated)
       setEditId(null)
     } else {
@@ -57,42 +61,59 @@ export default function ServicosPage() {
     setError('')
   }
 
+  function cancel() { setEditId(null); setForm(emptyForm()); setError('') }
+
   return (
     <div className={styles.page}>
       <div className={styles.header}>
         <h1 className={styles.title}>Serviços</h1>
         <p className={styles.sub}>Gerencie os serviços da sua barbearia</p>
       </div>
-      <div className={styles.body}>
-        <div className={styles.form}>
-          <h2 className={styles.formTitle}>{editId ? 'Editar serviço' : 'Novo serviço'}</h2>
-          <div className={styles.field}><label>Nome</label><input placeholder="Corte simples" value={form.name} onChange={e => set('name', e.target.value)} className={styles.input} /></div>
-          <div className={styles.row}>
-            <div className={styles.field}><label>Duração (min)</label><input type="number" placeholder="30" value={form.duration} onChange={e => set('duration', e.target.value)} className={styles.input} /></div>
-            <div className={styles.field}><label>Preço (R$)</label><input type="number" placeholder="35" value={form.price} onChange={e => set('price', e.target.value)} className={styles.input} /></div>
-          </div>
-          {error && <p className={styles.error}>{error}</p>}
-          <button className={styles.btnPrimary} onClick={handleSave} disabled={saving}>{saving ? 'Salvando...' : editId ? 'Salvar alterações' : 'Adicionar'}</button>
-          {editId && <button className={styles.btnGhost} onClick={() => { setEditId(null); setForm(emptyForm()) }}>Cancelar</button>}
-        </div>
 
-        <div>
-          <h2 className={styles.listTitle}>Cadastrados ({services.length})</h2>
-          {services.length === 0 && <p className={styles.empty}>Nenhum serviço ainda.</p>}
-          {services.map(s => (
-            <div key={s.id} className={`${styles.card} ${editId === s.id ? styles.editing : ''}`}>
-              <div>
-                <p className={styles.svcName}>{s.name}</p>
-                <p className={styles.svcMeta}>{s.duration}min · R$ {s.price.toFixed(2)}</p>
-              </div>
-              <div className={styles.actions}>
-                <button className={styles.btnGhost} onClick={() => startEdit(s)}>Editar</button>
-                <button className={styles.btnDanger} onClick={() => handleDelete(s.id)}>Excluir</button>
-              </div>
-            </div>
-          ))}
+      {/* Form */}
+      <div className={styles.form}>
+        <h2 className={styles.formTitle}>{editId ? 'Editar serviço' : 'Novo serviço'}</h2>
+        <div className={styles.formRow}>
+          <div className={styles.field}>
+            <label>Nome do serviço</label>
+            <input placeholder="Ex: Corte simples" value={form.name}
+              onChange={e => set('name', e.target.value)} className={styles.input} />
+          </div>
+          <div className={styles.field}>
+            <label>Duração (min)</label>
+            <input type="number" placeholder="30" value={form.duration}
+              onChange={e => set('duration', e.target.value)} className={styles.input} />
+          </div>
+          <div className={styles.field}>
+            <label>Preço (R$)</label>
+            <input type="number" placeholder="35" value={form.price}
+              onChange={e => set('price', e.target.value)} className={styles.input} />
+          </div>
+        </div>
+        {error && <p className={styles.error}>{error}</p>}
+        <div className={styles.formActions}>
+          <button className={styles.btnPrimary} onClick={handleSave} disabled={saving}>
+            {saving ? 'Salvando...' : editId ? 'Salvar alterações' : 'Adicionar serviço'}
+          </button>
+          {editId && <button className={styles.btnGhost} onClick={cancel}>Cancelar</button>}
         </div>
       </div>
+
+      {/* List */}
+      <p className={styles.listTitle}>Cadastrados ({services.length})</p>
+      {services.length === 0 && <p className={styles.empty}>Nenhum serviço cadastrado ainda.</p>}
+      {services.map(s => (
+        <div key={s.id} className={`${styles.card} ${editId === s.id ? styles.editing : ''}`}>
+          <div className={styles.svcInfo}>
+            <p className={styles.svcName}>{s.name}</p>
+            <p className={styles.svcMeta}>{s.duration} min · R$ {s.price.toFixed(2)}</p>
+          </div>
+          <div className={styles.actions}>
+            <button className={styles.btnEdit} onClick={() => startEdit(s)}>Editar</button>
+            <button className={styles.btnDanger} onClick={() => handleDelete(s.id)}>Excluir</button>
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
