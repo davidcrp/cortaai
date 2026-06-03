@@ -1,16 +1,18 @@
 :root {
-  --bg: #1A1A2E;
-  --surface: #16213E;
-  --surface2: #1E1E3A;
-  --gold: #C9A84C;
-  --gold-hover: #D9B85C;
-  --gold-dim: rgba(201, 168, 76, 0.15);
-  --cream: #F5F0E8;
-  --red: #8B0000;
-  --red-hover: #A00000;
-  --muted: #8A8AAA;
-  --border: #2A2A4A;
-  --border2: #1E1E38;
+  --bg: #0F0D0A;
+  --surface: #1A1510;
+  --surface2: #231D14;
+  --gold: #D4A853;
+  --gold-hover: #E0B860;
+  --gold-dim: rgba(212, 168, 83, 0.15);
+  --cream: #F0E4C8;
+  --red: #8B2020;
+  --red-hover: #A02828;
+  --muted: #8B7355;
+  --border: #3A2E1E;
+  --border2: #2A2216;
+  --radius: 4px;
+  --radius-lg: 8px;
 }
 
 *, *::before, *::after {
@@ -19,20 +21,22 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   background-color: var(--bg);
   color: var(--cream);
   font-family: var(--font-inter), 'Inter', sans-serif;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: var(--gold);
-  text-decoration: none;
+h1, h2 {
+  font-family: var(--font-display), 'Playfair Display', Georgia, serif;
+  letter-spacing: -0.3px;
 }
 
+a { color: var(--gold); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+input, button, select, textarea { font-family: inherit; }

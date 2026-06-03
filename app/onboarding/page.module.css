@@ -4,7 +4,7 @@
   width: 100%; max-width: 420px;
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 8px;
   padding: 40px 36px;
 }
 
@@ -20,7 +20,7 @@
 .input {
   background: var(--surface2);
   border: 1.5px solid var(--border);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 12px 14px;
   font-size: 14px;
   color: var(--cream);
@@ -41,7 +41,7 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 14px;
   cursor: pointer;
   font-family: inherit;
