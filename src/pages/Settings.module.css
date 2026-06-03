@@ -1,0 +1,35 @@
+.page { max-width: 520px; }
+.header { margin-bottom: 28px; }
+.title { font-size: 24px; font-weight: 800; color: var(--cream); margin-bottom: 4px; }
+.sub { font-size: 14px; color: var(--muted); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+}
+
+.form { display: flex; flex-direction: column; gap: 16px; }
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.infoLabel { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+.infoValue { font-size: 14px; color: var(--cream); }
+
+.success {
+  font-size: 13px;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 6px;
+  padding: 8px 12px;
+}

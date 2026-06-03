@@ -1,0 +1,37 @@
+.wrapper { display: flex; flex-direction: column; gap: 6px; }
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--cream);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface2);
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 11px 14px;
+  transition: border-color 0.15s;
+}
+
+.field:focus-within { border-color: var(--gold); }
+.hasError { border-color: var(--red) !important; }
+
+.icon { color: var(--gold); display: flex; align-items: center; flex-shrink: 0; }
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--cream);
+}
+
+.input::placeholder { color: var(--muted); }
+
+.error { font-size: 12px; color: #e05555; }
