@@ -1,0 +1,153 @@
+.page { max-width: 1100px; }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.title { font-size: 28px; font-weight: 800; color: var(--cream); margin-bottom: 4px; }
+.sub { font-size: 14px; color: var(--muted); }
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 12px;
+}
+
+.navBtn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.15s, background 0.15s;
+}
+.navBtn:hover { color: var(--cream); background: var(--surface2); }
+
+.monthLabel {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cream);
+  min-width: 160px;
+  text-align: center;
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.loading { font-size: 14px; color: var(--muted); padding: 40px 0; text-align: center; }
+
+/* Calendar grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.weekday {
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.cell {
+  min-height: 110px;
+  padding: 8px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  vertical-align: top;
+  transition: background 0.15s;
+}
+
+.cell:nth-child(7n) { border-right: none; }
+.cell:nth-last-child(-n+7) { border-bottom: none; }
+
+.cell:hover { background: var(--surface2); }
+
+.cellOther { background: var(--bg); }
+.cellOther:hover { background: var(--surface); }
+
+.cellToday { background: var(--gold-dim) !important; border: 1px solid var(--gold) !important; }
+
+.dayNum {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+.dayNumToday {
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 800;
+}
+
+.cellOther .dayNum { opacity: 0.3; }
+
+/* Appointment chips */
+.appts { display: flex; flex-direction: column; gap: 3px; }
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface2);
+  border-left: 2px solid var(--gold);
+  border-radius: 2px;
+  padding: 3px 6px;
+  overflow: hidden;
+}
+
+.chipTime {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chipName {
+  font-size: 11px;
+  color: var(--cream);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.more {
+  font-size: 11px;
+  color: var(--muted);
+  padding: 2px 4px;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .cell { min-height: 70px; padding: 4px; }
+  .chipTime { display: none; }
+  .chipName { font-size: 10px; }
+  .monthLabel { min-width: 120px; }
+}
