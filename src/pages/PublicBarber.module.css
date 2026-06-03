@@ -54,9 +54,14 @@
   transition: border-color 0.15s, background 0.15s;
   text-align: left;
 }
-.serviceBtn:hover { border-color: var(--gold); }
-.serviceBtnActive { border-color: var(--gold) !important; background: var(--gold-dim) !important; }
-.svcName { font-size: 15px; font-weight: 600; color: var(--cream); }
+.serviceBtn:hover { border-color: #C9A84C; }
+.serviceBtnActive {
+  border-color: #C9A84C !important;
+  background: rgba(201, 168, 76, 0.18) !important;
+  box-shadow: 0 0 0 1px #C9A84C;
+}
+.serviceBtnActive .svcName { color: #C9A84C; }
+.svcName { font-size: 15px; font-weight: 600; color: var(--cream); transition: color 0.15s; }
 .svcMeta { display: flex; gap: 14px; font-size: 13px; color: var(--muted); flex-shrink: 0; }
 
 /* date picker */
@@ -83,13 +88,13 @@
 .slots { display: flex; flex-wrap: wrap; gap: 8px; }
 
 .slot {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
+  background: #0f0f1a;
+  border: 1.5px solid #252545;
   border-radius: 8px;
   padding: 10px 16px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--cream);
+  color: rgba(245, 240, 232, 0.85);
   cursor: pointer;
   transition: border-color 0.15s, background 0.15s;
   font-family: inherit;

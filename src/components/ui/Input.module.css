@@ -32,6 +32,6 @@
   color: var(--cream);
 }
 
-.input::placeholder { color: var(--muted); }
+.input::placeholder { color: rgba(245, 240, 232, 0.35); }
 
 .error { font-size: 12px; color: #e05555; }

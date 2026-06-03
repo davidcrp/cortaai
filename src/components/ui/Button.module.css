@@ -36,10 +36,10 @@
 .outline:hover:not(:disabled) { background: var(--gold-dim); }
 
 .danger {
-  background: var(--red);
-  color: var(--cream);
+  background: #8B0000;
+  color: #F5F0E8;
 }
-.danger:hover:not(:disabled) { background: var(--red-hover); }
+.danger:hover:not(:disabled) { background: #A00000; }
 
 .ghost {
   background: transparent;
