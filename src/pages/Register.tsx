@@ -33,10 +33,10 @@ export default function Register() {
   return (
     <div className={styles.page}>
       <div className={styles.card}>
-        <Link to="/" className={styles.logo}>
+        <div className={styles.logo}>
           <ScissorsIcon />
           <span>CortaAí</span>
-        </Link>
+        </div>
         <h1 className={styles.title}>Criar sua barbearia</h1>
         <p className={styles.sub}>Grátis para sempre · Sem cartão de crédito</p>
 

@@ -26,10 +26,10 @@ export default function Login() {
   return (
     <div className={styles.page}>
       <div className={styles.card}>
-        <Link to="/" className={styles.logo}>
+        <div className={styles.logo}>
           <ScissorsIcon />
           <span>CortaAí</span>
-        </Link>
+        </div>
         <h1 className={styles.title}>Entrar na sua conta</h1>
         <p className={styles.sub}>Acesse o painel da sua barbearia</p>
 
