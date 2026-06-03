@@ -1,0 +1,38 @@
+:root {
+  --bg: #1A1A2E;
+  --surface: #16213E;
+  --surface2: #1E1E3A;
+  --gold: #C9A84C;
+  --gold-hover: #D9B85C;
+  --gold-dim: rgba(201, 168, 76, 0.15);
+  --cream: #F5F0E8;
+  --red: #8B0000;
+  --red-hover: #A00000;
+  --muted: #8A8AAA;
+  --border: #2A2A4A;
+  --border2: #1E1E38;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--cream);
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline; }
